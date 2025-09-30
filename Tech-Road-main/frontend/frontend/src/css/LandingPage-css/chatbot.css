@@ -1,0 +1,63 @@
+.AI {
+  background-color: rgba(255, 255, 255, 0.9);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  transition: transform 2s ease-in-out;
+  right: 0;
+  transform: translateY(-50%);
+  /* animation: upDown 2s ease-in-out infinite; */
+  position: absolute;
+  margin-top: 300px;
+  margin-right: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+   
+}
+
+
+.ai_btn {
+  background-color: rgba(255, 255, 255, 0.9);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.img_ai {
+  width: 50px;
+  height: 50px;
+  position: relative;
+  z-index: 2;
+}
+
+.message {
+  background: white;
+  padding: 8px 12px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  font-family: sans-serif;
+  font-size: 14px;
+  color: #333;
+  position: absolute;
+  right: 90px; 
+  font-weight: bold;
+  transform: translateY(-50%);
+  white-space: nowrap;
+  direction: rtl;
+}
+
+.message::after {
+  content: "";
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  border-left: 10px solid white;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+}
