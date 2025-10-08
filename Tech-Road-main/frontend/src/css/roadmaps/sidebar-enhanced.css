@@ -1,0 +1,123 @@
+/* Enhanced sidebar styling for resources and content */
+
+/* Resource type badges */
+.resource-type-badge {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+  margin-right: 8px;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.resource-type-article {
+  background-color: #FFC107;
+}
+
+.resource-type-video {
+  background-color: #9C27B0;
+}
+
+.resource-type-course {
+  background-color: #4CAF50;
+}
+
+.resource-type-book {
+  background-color: #2196F3;
+}
+
+.resource-type-other {
+  background-color: #607D8B;
+}
+
+/* Enhanced description styling */
+.detail-description {
+  margin: 15px 0;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 6px;
+  border-left: 4px solid #4080a0;
+  position: relative;
+}
+
+/* Language switch button */
+.lang-switch-btn {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  background-color: #4080a0;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.lang-switch-btn:hover {
+  background-color: #2c5a70;
+}
+
+.lang-switch-btn i {
+  font-size: 14px;
+}
+
+.description-ar {
+  direction: rtl;
+  text-align: right;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Resource list styling */
+.resource-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+.resource-list li {
+  margin-bottom: 12px;
+  padding: 10px;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+  transition: background-color 0.2s ease;
+}
+
+.resource-list li:hover {
+  background-color: #f0f7fa;
+}
+
+.resource-list a {
+  color: #0066cc;
+  text-decoration: none;
+  font-weight: 500;
+  display: block;
+  margin-top: 5px;
+}
+
+.resource-list a:hover {
+  text-decoration: underline;
+}
+
+.detail-resources h4 {
+  margin-top: 25px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #4080a0;
+  color: #333;
+}
+
+.resource-hint {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 15px;
+  font-style: italic;
+}

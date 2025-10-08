@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>انشاء حساب جديد</title>
+  <link rel="stylesheet" href="../src/css/signUp.css">
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="login">
+    <img src="../img/T-R.png" alt="" class="logo">
+    <p class="txt_logo">Tech - Road</p>
+  </div>
+
+  <div class="img_3D">
+    <img src="../img/Cone.png" alt="" class="img1">
+    <img src="../img/Cone (2).png" alt="" class="img2">
+    <img src="../img/Cone (1).png" alt="" class="img3">
+    <img src="../img/Cone (4).png" alt="" class="img5">
+    <img src="../img/Cone (3).png" alt="" class="img4">
+  </div>
+
+  <div class="card">
+    <h1 class="txt_login">انشاء حساب</h1>
+    <form id="signupForm">
+      <div class="Form">
+        <div class="max"> 
+          <div class="input3">
+            <label for="lastname" class="label4">الاسم الاخير</label><br><br>
+            <input type="text" id="lastname" class="INPUT_name" required>
+          </div>
+          <div>
+            <label for="firstname" class="label4">الاسم الاول</label><br><br>
+            <input type="text" id="firstname" class="INPUT_name" required>
+          </div>
+        </div>
+        <br>
+        <div class="input1">
+          <label for="email" class="label1">البريد الإلكتروني</label><br><br>
+          <input type="email" id="email" class="INPUT_Txt" required>
+        </div>
+        <div class="input2">
+          <label for="password" class="label2">كلمة المرور</label><br><br>
+          <input type="password" id="password" class="INPUT_Txt" required>
+        </div>
+        <div class="input2">
+          <label for="confirm" class="label3">تأكيد كلمة المرور</label><br><br>
+          <input type="password" id="confirm" class="INPUT_Txt" required>
+        </div>
+      </div>
+      <button type="submit" class="btn">التالي</button>
+      <button class="btn_creat_account">سجل باستخدام جوجل <img src="../img/Tech-Road/btn-outline/template/icons8-google.png" alt=""></button>
+
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("signupForm").addEventListener("submit", function(e) {
+      e.preventDefault(); 
+
+      let password = document.getElementById("password").value;
+      let confirm = document.getElementById("confirm").value;
+
+      if (password !== confirm) {
+        alert("كلمة المرور وتأكيد كلمة المرور غير متطابقين");
+        return;
+      }
+
+     
+      window.location.href = "next SignUp.html";
+    });
+  </script>
+
+</body>
+</html>
+

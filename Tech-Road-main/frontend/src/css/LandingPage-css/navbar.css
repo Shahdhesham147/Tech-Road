@@ -1,0 +1,100 @@
+.learing{
+     background: linear-gradient(
+    to bottom right ,
+    rgba(165, 223, 230, 0.1),
+    rgba(85, 180, 179, 1)
+    
+  );
+  backdrop-filter: blur(10px); 
+  -webkit-backdrop-filter: blur(10px);    
+   height: 650px;
+   width: 100%;
+
+} 
+.logo{
+  position: relative;
+  left: 650px;
+  bottom: 7px;
+  height: 70px;
+  width: 70px;
+}
+.navBar{ 
+    background-color:rgba(255, 255, 255, 1) ;
+    height: 60px;
+    width: 1150px;
+    border-radius: 40px;
+    position: relative;
+    top: 30px;
+    left: 100px;
+    display: flex;
+    font-size: 20px;
+}
+ul{
+    display: flex;
+    gap: 40px;
+    list-style: none;
+    position: relative;
+    left: 300px;
+    top: 20px;
+    
+
+}
+ul li a {
+  text-decoration: none; 
+  color: black;
+  
+ 
+}
+ul li a {
+  text-decoration: none; 
+  color: black;
+  position: relative;
+  padding-bottom: 5px; 
+  transition: all 0.3s ease;
+}
+
+ul li a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(
+    to right,
+    rgba(20, 32, 32, 1),
+    rgba(37, 70, 70, 1),
+    rgba(64, 128, 128, 1)
+  ); ; 
+  transition: width 0.3s ease;
+}
+
+ul li a:hover::after {
+  width: 100%;
+}
+
+.btn_Navbar {
+    position: relative;
+    right: 400px;
+    top: 10px;
+    border-radius: 20px;
+    width: 120px;
+    height: 40px;
+    font-weight: bold;
+    background: linear-gradient(
+        to right,
+        rgba(20, 32, 32, 1),
+        rgba(37, 70, 70, 1),
+        rgba(64, 128, 128, 1)
+    );
+    color: white;
+    border: 1px solid rgba(20, 32, 32, 1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); 
+    transition: all 0.3s ease; 
+    cursor: pointer;
+}
+
+.btn_Navbar:hover {
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4); 
+    transform: translateY(-2px);
+}

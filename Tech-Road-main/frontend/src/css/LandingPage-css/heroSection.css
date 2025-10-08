@@ -1,0 +1,197 @@
+.hero{
+    position: relative;
+    top: 150px;
+    margin-left: 480px;
+}
+/* اجعل الحاوية الرئيسية مرجعا لتموضع الأيقونات */
+.hero-container{position: relative;}
+.txt1{
+  background: linear-gradient(
+    to right,
+    rgba(40, 64, 64, 1),
+    rgba(119, 204, 204, 1),
+    rgba(85, 167, 167, 1)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: bold;
+  font-size: 55px;
+
+}
+.txt2{
+  font-weight: bold;
+  font-size: 55px;
+  margin-left: 20px;
+
+}
+.txt3{
+position: relative;
+right: 230px;
+top: 20px;
+text-align: center;
+color:rgba(83, 83, 83, 1) ;
+font-size: 18px;
+}
+.Digitopia{
+    background-color:rgba(255, 255, 255, 1) ;
+    border-radius: 15px;
+    position: absolute;
+    top: 140px;
+    left: 615px;
+width: 120px;
+font-size: 20px;
+text-align: center;
+align-items: center;
+padding: 5px;
+font-weight: normal;
+}
+
+.btn_hero {
+    position: relative;
+    left: 100px; 
+    top: 50px;
+    border-radius: 20px;
+    width: 190px;
+    height: 40px;
+    font-weight: bold;
+    background: linear-gradient(
+        to right,
+        rgba(20, 32, 32, 1),
+        rgba(37, 70, 70, 1),
+        rgba(64, 128, 128, 1)
+    );
+    color: white; 
+    font-size: 15px;
+    border: 1px solid rgba(20, 32, 32, 1);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: all 0.3s ease; 
+    cursor: pointer;
+    z-index: 10; 
+}
+
+.btn_hero:hover {
+    box-shadow: 0 8px 16px rgba(0,0,0,0.5); 
+    transform: translateY(-3px); 
+}
+.icon1{
+     background-color:rgba(255, 255, 255, 1) ;
+    border-radius: 15px;
+    position: absolute;
+    top: 150px;
+    left: 200px;
+  font-size: 35px;
+width: 55px;
+text-align: center;
+align-items: center;
+padding: 0px 0px 2px;
+}
+.icon2{
+     background-color:rgba(255, 255, 255, 1) ;
+    border-radius: 15px;
+    position: absolute;
+  top: 400px;
+left: 260px;
+  font-size: 35px;
+width: 55px;
+text-align: center;
+align-items: center;
+padding: 0px 0px 2px;
+}
+.icon3{
+     background-color:rgba(255, 255, 255, 1) ;
+    border-radius: 15px;
+    position: absolute;
+  top: 430px;
+    left: 850px;
+  font-size: 35px;
+width: 55px;
+text-align: center;
+align-items: center;
+padding: 0px 0px 2px;
+}
+.icon4{
+     background-color:rgba(255, 255, 255, 1) ;
+    border-radius: 15px;
+    position: absolute;
+  top: 120px;
+    left: 1060px;
+  font-size: 35px;
+width: 55px;
+text-align: center;
+align-items: center;
+padding: 0px 0px 2px;
+
+}
+.icon1, .icon2, .icon3, .icon4 {
+  display: inline-block;
+  font-size: 40px; 
+  margin: 20px;
+  animation: float 2s ease-in-out infinite;
+}
+
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+
+.icon2 {
+  animation-delay: 0.3s;
+}
+.icon3 {
+  animation-delay: 0.6s;
+}
+.icon4 {
+  animation-delay: 0.9s;
+}
+
+.road{
+    display: flex;
+background: linear-gradient(
+  to bottom right,
+  rgba(255, 255, 255, 1),
+  rgba(255, 255, 255, 0.2)
+);
+  color: black; 
+  border: none;
+  padding: 15px 25px;
+  border-radius: 5px;
+  position: relative;
+  top: 130px;
+  left: 15px;
+  width: 190px;
+  border-radius: 30px;
+  text-align: center;
+  align-items: center;
+  font-size: 16px;
+}
+.choice{
+    display: flex;
+    gap: 60px;
+ right: 150px;
+ position: relative;
+}
+.img_icon1{
+    width: 30px;
+    height: 30px;
+position: relative;
+left: 15px;
+}
+.img_icon2{
+    width: 30px;
+    height: 30px;
+position: relative;
+left: 10px;
+}
+.img_icon3{
+    width: 30px;
+    height: 30px;
+position: relative;
+left: 15px;
+}

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>انشاء حساب جديد</title>
+    <link rel="stylesheet" href="../src/css/next SignUp.css">
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+
+  <div class="login">
+          <img src="../img/T-R.png" alt="" class="logo">
+            <p class="txt_logo">Tech - Road</p>
+          
+        </div>
+        <div class="img_3D">
+        <img src="../img/Cone.png" alt=""class="img1">
+        <img src="../img/Cone (2).png" alt=""class="img2">
+        <img src="../img/Cone (1).png" alt="" class="img3">
+        <img src="../img/Cone (4).png" alt="" class="img5">
+        <img src="../img/Cone (3).png" alt=""class="img4">
+        </div>
+        <div class="card">
+          <h1 class="txt_login"> انشاء حساب</h1>
+          <form action="">
+            <div class="Form">
+            <div class="input1">
+  <label for="phone" class="label1">رقم الموبايل</label><br><br>
+  <div class="phone-wrapper">
+    <select id="countryCode">
+      <option value="+20">🇪🇬 +20</option>
+      <option value="+966">🇸🇦 +966</option>
+      <option value="+971">🇦🇪 +971</option>
+      <option value="+974">🇶🇦 +974</option>
+      <option value="+965">🇰🇼 +965</option>
+      <option value="+212">🇲🇦 +212</option>
+      <option value="+213">🇩🇿 +213</option>
+      <option value="+216">🇹🇳 +216</option>
+      <option value="+249">🇸🇩 +249</option>
+      <option value="+970">🇵🇸 +970</option>
+      <option value="+962">🇯🇴 +962</option>
+      <option value="+961">🇱🇧 +961</option>
+      <option value="+963">🇸🇾 +963</option>
+      <option value="+964">🇮🇶 +964</option>
+      <option value="+218">🇱🇾 +218</option>
+      <option value="+222">🇲🇷 +222</option>
+      <option value="+252">🇸🇴 +252</option>
+      <option value="+253">🇩🇯 +253</option>
+      <option value="+269">🇰🇲 +269</option>
+    </select>
+    <input type="text" id="phone" placeholder="رقم الموبايل">
+    <input type="hidden" id="fullPhone" name="fullPhone">
+  </div>
+</div>
+
+    <br>
+ 
+<div class="input1">
+  <label for="gender" class="label2">الجنس</label><br><br>
+  <select id="gender" class="INPUT_Txt" required>
+    <option value="" disabled selected hidden class="s"></option>
+    <option value="male" >ذكر</option>
+    <option value="female">أنثى</option>
+   
+  </select>
+</div>
+
+<br> 
+ <div class="input2">
+        <label for=""class="label3">العمر</label> <br>
+       <br> <input type="text" class="INPUT_Txt" >
+      </div>
+      <br>
+      <div class="input2">
+  <label for="education" class="label4">المرحلة التعليمية</label><br><br>
+  <select id="education" class="INPUT_Txt">
+    <option value="" disabled selected hidden></option>
+    <option value="highschool">ثانوي</option>
+    <option value="undergrad">جامعي</option>
+    <option value="postgrad">دراسات عليا</option>
+  </select>
+</div>
+
+              <br>
+             <div class="max"> 
+            <div class="input3">
+                       <label for=""class="label5"> المدينه /المحافظه </label> <br>
+               <br> <input type="text"class="INPUT_name">
+                </div>
+                
+<div class="input3">
+  <label for="country" class="label6">الدولة</label><br><br>
+  <select id="country" class="INPUT_name">
+        <option value="" disabled selected hidden ></option>
+  <option value="egypt">مصر</option>
+  <option value="ksa">السعودية</option>
+  <option value="uae">الإمارات</option>
+  <option value="qatar">قطر</option>
+  <option value="kuwait">الكويت</option>
+  <option value="morocco">المغرب</option>
+  <option value="algeria">الجزائر</option>
+  <option value="tunisia">تونس</option>
+  <option value="sudan">السودان</option>
+  <option value="palestine">فلسطين</option>
+  <option value="jordan">الأردن</option>
+  <option value="lebanon">لبنان</option>
+  <option value="syria">سوريا</option>
+  <option value="iraq">العراق</option>
+  <option value="libya">ليبيا</option>
+  <option value="mauritania">موريتانيا</option>
+  <option value="somalia">الصومال</option>
+  <option value="djibouti">جيبوتي</option>
+  <option value="comoros">جزر القمر</option>
+  </select>
+</div>
+
+              </div>
+            </div>
+          </form>
+
+        </div>
+        <button class="btn"> سجل الان</button>
+
+
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+  const countryCode = document.getElementById("countryCode");
+  const phone = document.getElementById("phone");
+  const fullPhone = document.getElementById("fullPhone");
+  const form = document.querySelector("form");
+
+  function updateFullPhone() {
+    fullPhone.value = countryCode.value + phone.value.trim();
+  }
+
+ 
+  countryCode.addEventListener("change", updateFullPhone);
+  phone.addEventListener("input", updateFullPhone);
+
+  
+  form.addEventListener("submit", function (e) {
+    updateFullPhone();
+    console.log("📱 رقم الموبايل النهائي:", fullPhone.value);
+  });
+});
+
+</script>
+
+    <script src="../src/js/signUp.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+/* Arabic language support styles */
+
+/* Right-to-left text direction for Arabic content */
+.description-ar {
+  direction: rtl;
+  text-align: right;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+}
+
+/* Top language toggle container */
+.language-toggle-container {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0 0 16px 0;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Language switch button styling */
+.lang-switch-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f5f8;
+  color: #4080a0;
+  border: 1px solid #d0e0e8;
+  border-radius: 4px;
+  padding: 4px 10px;
+  margin: 0 0 0 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Active language state */
+.lang-switch-btn.active-lang {
+  background-color: #4080a0;
+  color: #fff;
+  border-color: #306080;
+}
+
+.lang-switch-btn:hover {
+  background-color: #e0f0f8;
+  border-color: #a0c0d0;
+}
+
+.lang-switch-btn.active-lang:hover {
+  background-color: #306080;
+}
+
+.lang-switch-btn i {
+  margin-right: 5px;
+}
+
+/* For Arabic button, position the icon differently */
+.description-ar .lang-switch-btn i {
+  margin-right: 0;
+  margin-left: 5px;
+}
+
+/* Hide language switch button if no Arabic translation is available */
+.no-arabic .lang-switch-btn {
+  display: none;
+}
+
+/* Original language switch buttons at bottom of description */
+.detail-description .lang-switch-btn {
+  margin-top: 15px;
+}

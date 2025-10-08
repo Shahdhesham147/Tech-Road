@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>Roadmaps | TechRoad</title>
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="../src/css/style.css">
+
+  <!-- Roadmaps Page CSS -->
+  <link rel="stylesheet" href="../src/css/roadmaps/navbar.css">
+  <link rel="stylesheet" href="../src/css/roadmaps/main.css">
+  <link rel="stylesheet" href="../src/css/roadmaps/content.css">
+  <link rel="stylesheet" href="../src/css/roadmaps/sidebar.css">
+  <link rel="stylesheet" href="../src/css/roadmaps/sidebar-enhanced.css">
+  <link rel="stylesheet" href="../src/css/roadmaps/assessment.css">
+  <link rel="stylesheet" href="../src/css/arabic-support.css">
+
+  <style>
+    /* Roadmap visualization container with sidebar support */
+    .roadmap-visualization-container {
+      position: relative;
+      display: flex;
+      height: 650px;
+      margin: 20px 0;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    
+    /* Cytoscape container styling */
+    #cy {
+      flex: 1;
+      height: 100%;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      background: #f9f9f9;
+      position: relative;
+      display: block !important;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    
+    /* Make sure the Cytoscape container is visible */
+    #roadmap-container:not(.hidden) #cy {
+      display: block !important;
+      visibility: visible !important;
+    }
+    
+    /* Controls for the graph */
+    .cy-controls {
+      position: absolute;
+      bottom: 15px;
+      right: 15px;
+      z-index: 999;
+      background: rgba(255,255,255,0.8);
+      padding: 5px;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .cy-controls button {
+      background: white;
+      border: 1px solid #e0e0e0;
+      border-radius: 4px;
+      padding: 6px 12px;
+      margin: 0 3px;
+      cursor: pointer;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+      transition: all 0.2s ease;
+    }
+    
+    .cy-controls button:hover {
+      background: #f0f0f0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    /* Node detail sidebar styling */
+    #node-detail-sidebar {
+      width: 0;
+      height: 100%;
+      background: white;
+      border-left: 1px solid #e0e0e0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      overflow: hidden;
+      transition: width 0.3s ease;
+      box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+    
+    #node-detail-sidebar.active {
+      width: 350px;
+    }
+    
+    #node-detail-sidebar:not(.hidden) {
+      display: block;
+    }
+    
+    .sidebar-header {
+      padding: 15px;
+      border-bottom: 1px solid #e0e0e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #f8f9fa;
+    }
+    
+    .sidebar-header h3 {
+      margin: 0;
+      font-size: 18px;
+      color: #333;
+    }
+    
+    #close-sidebar {
+      background: none;
+      border: none;
+      font-size: 18px;
+      cursor: pointer;
+      color: #666;
+    }
+    
+    #close-sidebar:hover {
+      color: #333;
+    }
+    
+    .sidebar-content {
+      padding: 15px;
+      height: calc(100% - 120px);
+      overflow-y: auto;
+    }
+    
+    .sidebar-footer {
+      padding: 10px 15px;
+    }
+    
+    .sidebar-action-btn {
+      background: #0d6efd;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 8px 15px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: background 0.2s;
+    }
+    
+    .sidebar-action-btn:hover {
+      background: #0b5ed7;
+    }
+    
+    .sidebar-action-btn.disabled {
+      background: #6c757d;
+      cursor: not-allowed;
+      opacity: 0.65;
+    }
+    
+    .footer-hint {
+      display: block;
+      font-size: 12px;
+      color: #6c757d;
+      margin-top: 10px;
+      text-align: center;
+      border-top: 1px solid #e0e0e0;
+      text-align: center;
+      background: #f8f9fa;
+      font-size: 12px;
+      color: #666;
+    }
+    
+    /* Enhance roadmap display */
+    #roadmap-container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    
+    /* Enhanced styling for roadmap steps */
+    .steps-container {
+      margin-top: 30px;
+    }
+    
+    .roadmap-step {
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    
+    .step-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #f8f9fa;
+      padding: 12px 15px;
+      border-bottom: 1px solid #ddd;
+      cursor: pointer;
+    }
+    
+    .step-title {
+      font-weight: bold;
+      font-size: 16px;
+    }
+    
+    .toggle-btn {
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 25px;
+      height: 25px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+    
+    .step-body {
+      padding: 15px;
+      background: white;
+      transition: max-height 0.3s ease;
+    }
+    
+    .step-body.hidden {
+      display: none;
+    }
+    
+    .skills-list, .resources-list {
+      margin-top: 15px;
+      padding-top: 10px;
+      border-top: 1px solid #eee;
+    }
+    
+    .resources-list a {
+      color: #007bff;
+      text-decoration: none;
+    }
+    
+    .resources-list a:hover {
+      text-decoration: underline;
+    }
+    
+    /* Resource type badges */
+    .resource-type.badge {
+      font-size: 11px;
+      background-color: #f1f1f1;
+      color: #555;
+      padding: 2px 5px;
+      border-radius: 3px;
+      margin-left: 5px;
+      display: inline-block;
+    }
+    
+    .resource-type.badge:empty {
+      display: none;
+    }
+    
+    /* Different colors for different resource types */
+    .resource-type.badge:contains('video') {
+      background-color: #ff5252;
+      color: white;
+    }
+    
+    .resource-type.badge:contains('article') {
+      background-color: #2196F3;
+      color: white;
+    }
+    
+    .resource-type.badge:contains('course') {
+      background-color: #4CAF50;
+      color: white;
+    }
+    
+    /* Custom styling for roadmap.sh format */
+    .roadmap-step {
+      transition: all 0.3s ease;
+    }
+    
+    .roadmap-step:hover {
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    }
+    
+    /* Node detail content styling */
+    #detail-content h2 {
+      margin-top: 0;
+      font-size: 22px;
+      color: #4080a0;
+      border-bottom: 2px solid #4080a0;
+      padding-bottom: 10px;
+      margin-bottom: 16px;
+    }
+    
+    #detail-content p {
+      line-height: 1.6;
+      color: #333;
+      margin-bottom: 20px;
+      font-size: 15px;
+    }
+    
+    .detail-resources {
+      margin-top: 20px;
+    }
+    
+    .detail-resources h4 {
+      margin-bottom: 10px;
+      font-size: 16px;
+      color: #333;
+    }
+    
+    .detail-resources ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    
+    .detail-resources li {
+      margin-bottom: 12px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #f1f1f1;
+    }
+    
+    .detail-resources li:last-child {
+      border-bottom: none;
+    }
+    
+    .resource-icon {
+      margin-right: 8px;
+      color: #555;
+    }
+    
+    /* Status markers like in roadmap.sh */
+    .status-marker {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin-right: 5px;
+    }
+    
+    .status-marker.done {
+      background-color: #4CAF50;
+    }
+    
+    .status-marker.pending {
+      background-color: #FFC107;
+    }
+    
+    .status-marker.optional {
+      background-color: #9E9E9E;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo"><a href="index.html">TechRoad</a></div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a class="active" href="roadmaps.html">Roadmaps</a></li>
+      <li><a href="community.html">Community</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="roadmap-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h2>Tech Road</h2>
+      <div id="user-assessment"></div>
+      <div id="track-sidebar" class="hidden">
+        <h3>Recommended Track</h3>
+        <div id="recommended-track"></div>
+        <div id="all-tracks" class="margin-top-30">
+          <h3>All Tracks</h3>
+          <ul id="track-list"></ul>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Content Section -->
+    <section class="roadmap-content">
+      <div id="assessment-container">
+        <h1>Find Your Tech Path</h1>
+        <p>Take a quick assessment to discover the best tech career path for you based on your skills and interests.</p>
+        <button id="start-assessment" class="primary-button">Start Assessment</button>
+      </div>
+      
+      <div id="roadmap-container" class="hidden">
+        <h1 id="track-title">Your Roadmap</h1>
+        
+        <!-- Cytoscape container with controls -->
+        <div class="roadmap-visualization-container">
+          <div id="cy">
+            <div class="cy-controls">
+              <button id="cy-zoom-in" title="Zoom In"><i class="fas fa-search-plus"></i></button>
+              <button id="cy-zoom-out" title="Zoom Out"><i class="fas fa-search-minus"></i></button>
+              <button id="cy-fit" title="Fit to View"><i class="fas fa-expand"></i></button>
+            </div>
+          </div>
+          
+          <!-- Node detail sidebar -->
+          <div id="node-detail-sidebar" class="hidden">
+            <div class="sidebar-header">
+              <h3 id="detail-title">Node Details</h3>
+              <button id="close-sidebar" title="Close"><i class="fas fa-times"></i></button>
+            </div>
+            <div id="detail-content" class="sidebar-content">
+              <!-- Content will be dynamically added here -->
+            </div>
+            <div class="sidebar-footer">
+              <div class="sidebar-actions">
+                <!-- View Resources button removed -->
+              </div>
+              <span class="footer-hint">Click anywhere outside to close</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Roadmap steps container (hidden by default) -->
+        <div id="roadmap-steps" class="hidden"></div>
+      </div>
+    </section>
+  </main>
+  <!-- Cytoscape.js and extensions -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.27.0/cytoscape.min.js"></script>
+  <script src="https://unpkg.com/dagre@0.8.5/dist/dagre.min.js"></script>
+  <script src="https://unpkg.com/cytoscape-dagre@2.5.0/cytoscape-dagre.js"></script>
+
+  <!-- Roadmap JS - Modular Structure -->
+  <script type="module" src="../src/js/modules/index.js"></script>
+</body>
+</html>

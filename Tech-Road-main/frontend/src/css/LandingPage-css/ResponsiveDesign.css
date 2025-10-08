@@ -1,0 +1,260 @@
+/* /* =========================
+   شاشات كبيرة شوية <= 1200px
+   ========================= */
+@media (max-width: 1200px) {
+  .learing { height: auto; padding-bottom: 40px; }
+
+  .navBar {
+    width: calc(100% - 120px);
+    left: 60px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px;
+  }
+  .logo { position: static; height: 60px; width: 60px; }
+  ul { position: static; gap: 24px; top: 0; left: 0; }
+  .btn_Navbar { position: static; width: 120px; height: 40px; }
+
+  .hero { margin-left: 0; top: 120px; text-align: center; }
+  .txt1, .txt2 { font-size: 48px; }
+  .txt3 { right: 0; top: 16px; margin: 0 auto; max-width: 800px; }
+
+  .Digitopia { left: 50%; transform: translateX(-50%); top: 120px; }
+
+  .choice { right: 0; justify-content: center; gap: 24px; }
+  .road { left: 0; top: 100px; width: 220px; }
+
+  .choice_tech-Road { height: auto; padding-bottom: 40px; }
+  .tech { margin-left: 0; top: 0; justify-content: center; text-align: center; }
+  .card { margin-left: 0; justify-content: center; gap: 24px; }
+
+  .Opinions { height: auto; padding: 40px 0; }
+  .Opinions_card { margin-left: 0; justify-content: center; }
+
+  .CARD { position: relative; height: 420px; }
+  .bg_img { height: 420px; }
+  .bg { width: 70%; margin: 0 auto; left: 0; right: 0; }
+  .txt_btn { margin-left: 0; left: 50%; transform: translateX(-50%); text-align: center; }
+  .btn_Card { left: 0; top: 24px; }
+
+  .footer { padding: 40px 16px 30px; }
+  .footer_nav { margin-top: 120px; justify-content: center; align-items: center; }
+  a { left: 0; }
+  .logo_footer { left: 0; bottom: 0; }
+  .line { width: calc(100% - 40px); left: 20px; }
+  .footer_icon { justify-content: center; gap: 24px; }
+  .img_footer { left: 0; top: 24px; }
+  .email { left: 0; text-align: center; top: 24px; }
+}
+
+/* =========================
+   تابلت ولابتوب صغير <= 992px
+   ========================= */
+@media (max-width: 992px) {
+  .navBar {
+    width: calc(100% - 32px);
+    left: 16px;
+    height: 56px;
+    padding: 0 12px;
+    border-radius: 24px;
+  }
+  ul { gap: 16px; font-size: 16px; flex-wrap: wrap; justify-content: center; }
+  .logo { height: 56px; width: 56px; }
+  .btn_Navbar { width: 112px; height: 38px; font-size: 14px; }
+
+  .hero { top: 90px; padding: 0 16px; }
+  .txt1, .txt2 { font-size: 40px; }
+  .txt3 { font-size: 16px; max-width: 650px; }
+  .btn_hero { left: 0; top: 32px; }
+  .learing{height: 550px;}
+
+  /* نقل علامات الإيموجي/إخفاؤها على الشاشات المتوسطة */
+  .icon1, .icon2, .icon3, .icon4 { display: none; }
+
+  .road { width: 210px; font-size: 15px; }
+  .img_icon1, .img_icon2, .img_icon3 { left: 8px; }
+
+  .tech { font-size: 36px; }
+  .card1, .card2, .card3 { width: 280px; height: 290px; }
+  .img_card { left: auto; right: auto; display: block; margin: 24px auto 0; }
+  .txt_card, .txxt_card { left: 0; text-align: center; top: 24px; }
+  .txxxt { right: 0; text-align: center; }
+
+  .Opinions_card { gap: 24px; }
+  .Opinions_card1, .Opinions_card2, .Opinions_card3 { width: 280px; height: 290px; }
+  .star_img { left: 50%; transform: translateX(-50%); }
+  .user { left: 0; justify-content: center; }
+
+  .bg { width: 80%;  top: 50px; }
+  .text_card { font-size: 28px; }
+
+  .footer { padding: 30px 12px 25px; }
+  .footer_nav { gap: 16px; flex-wrap: wrap; }
+  .logo_footer { width: 80px; height: 80px; }
+  .img_footer { gap: 16px; }
+}
+
+/* =========================
+   موبايل (<= 768px)
+   ========================= */
+@media (max-width: 768px) {
+  .learing { padding-bottom: 24px; }
+
+  .navBar {
+    width: calc(100% - 24px);
+    left: 12px;
+    height: 40px;
+    padding: 10px 12px;
+    gap: 8px;
+    flex-direction: column;
+  }
+  .logo{
+    margin-top: 20px;
+    height: 100px;
+    width: 100px;
+  }
+  ul { width: 100%; justify-content: center; gap: 12px; }
+  .btn_Navbar { width: 100%; max-width: 220px; }
+
+  .Digitopia { top: 100px; font-size: 16px; width: auto; padding: 6px 12px; }
+
+  .hero { top: 150px; }
+  .txt1, .txt2 { font-size: 32px; }
+  .txt3 { font-size: 15px; padding: 0 8px; }
+  .btn_hero { width: 160px; height: 38px; font-size: 14px; margin-top: 8px; }
+
+  .choice { flex-wrap: wrap; gap: 12px; margin-top: 8px; right: 50px; }
+  .road { width: 50%; max-width: 360px; margin: 0 auto; top: 150px; margin-left: 80px;}
+
+  .choice_tech-Road { padding: 24px 0 32px; height: 800px; }
+  .tech { font-size: 28px; flex-wrap: wrap; position: relative; top: 50px; }
+  .card { flex-direction: column; align-items: center; position: relative; bottom: 100px;}
+  .card1, .card2, .card3 { width: calc(65% - 32px); max-width: 420px; height: 150px; padding-bottom: 16px; position: relative; top: 90px;}
+  .txt_card, .txxt_card { font-size: 15px; top: -2px;}
+  .txxxt { font-size: 15px; top: -2px; padding: 0 16px; }
+  .img_card{width: 40px; height: 40px;position: relative; top: -2px;}
+
+  .Opinions { padding: 24px 0; }
+  .Students_Opinions { font-size: 32px; top: 0; margin-left: 0; }
+  .Opinions_card { flex-direction: column; align-items: center; gap: 16px; margin-top: 24px; }
+  .Opinions_card1, .Opinions_card2, .Opinions_card3 { width: calc(100% - 32px); max-width: 420px; height: auto; padding-bottom: 16px; }
+  .Opinions_txt { font-size: 16px; top: 15px; left: 2px; text-align: center; padding: 0 12px; }
+  .user { top: 13px; }
+  .star_img{position: relative;top: 5px;}
+
+  .CARD { height: 380px; }
+  .bg_img, .BG { height: 380px; }
+  .bg { width: calc(100% - 32px); height: auto; padding: 80px 12px; margin: 0 16px; border-radius: 18px; top: 90px;}
+  .text_card { font-size: 22px; line-height: 1.5; bottom: 40px; position: relative;}
+  .btn_Card { width: 170px; height: 38px; font-size: 14px; top: -15px; position: relative; }
+
+  .footer { height: auto; padding: 20px 8px 15px; }
+  .footer_nav { margin-top: 40px; gap: 12px; flex-direction: column; }
+  .logo_footer { position: static; margin: 8px auto 0; }
+  .line { width: calc(100% - 32px); left: 16px; margin-top: 16px; }
+  .footer_icon { flex-direction: column; align-items: center; }
+  .img_footer { position: static; margin-top: 8px; }
+  .email { position: static; margin-top: 8px; text-align: center; }
+
+  .AI{width: 50px; height: 50px; margin-right: -1px;margin-top:50px; position: absolute;}
+  .ai_btn{width: 50px; height: 50px;}
+  .img_ai{width: 30px; height: 30px; position:absolute; top: 10px; }
+  .message{position: relative; top:20px; margin-right: 30px;}
+
+}
+
+/* =========================
+   موبايل صغير جداً (<= 576px)
+   ========================= */
+@media (max-width: 576px) {
+  .footer { padding: 15px 6px 10px; }
+  .txt1, .txt2 { font-size: 26px; }
+  .txt3 { font-size: 14px; }
+  .Digitopia { top: 92px; font-size: 14px; }
+  .learing{height: 480px;}
+  .road { max-width: 170px; font-size: 14px; padding: 10px 10px; left: 80px; }
+  .img_icon1, .img_icon2, .img_icon3 { width: 24px; height: 24px; }
+
+  .tech { font-size: 24px; }
+  .txxxt { font-size: 14px; }
+
+  .Opinions_txt { font-size: 15px; }
+  .img_user { width: 80px; height: 80px; }
+
+  .CARD { height: 340px; }
+  .bg_img, .BG { height: 340px; }
+  .text_card { font-size: 20px; }
+  .btn_Card { width: 160px; height: 36px; }
+
+  .line { width: calc(100% - 24px); left: 12px; }
+} 
+@media (max-width: 768px) {
+    .road {
+        display: none;
+    }
+
+    .btn_Navbar {
+        display: none;
+    }
+
+    .Digitopia {
+        display: none;
+    }
+}
+
+/* =========================
+   شاشات كبيرة جداً (>= 1201px) — توسيط العناصر الرئيسية
+   ========================= */
+@media (min-width: 1201px) {
+  /* توسيط شريط التنقل داخل الهيرو */
+  .learing { padding-bottom: 60px; height: 700px; }
+  .navBar {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1150px;
+    display: flex;
+    justify-content: center; /* العناصر الوسطى (الروابط) تكون في المنتصف */
+    align-items: center;
+    padding: 0 250px; /* مساحة أكبر لروابط الوسط حتى لا تتداخل مع الشعار والزر */
+    position: relative; /* لتموضع الشعار والزر يمين/يسار */
+  }
+  /* اجعل عناصر شريط التنقل بلا إزاحات يدوية */
+  .logo { position: absolute; right: 16px; left: auto; top: 50%; transform: translateY(-50%); height: 70px; width: 70px; }
+  ul { position: static; top: 0; left: 0; gap: 40px; margin: 0 auto; align-items: center; }
+  .btn_Navbar { position: absolute; left: 24px; top: 50%; transform: translateY(-50%); }
+
+  /* توسيط محتوى الهيرو وزيادة المسافة أسفل Digitopia */
+  .hero { margin-left: 0; left: 50%; transform: translateX(-50%); text-align: center; top: 180px;}
+  .txt3 { right: 0; margin: 0 auto; max-width: 900px; }
+  .Digitopia { left: 50%; transform: translateX(-50%); }
+
+  /* تموضع الأيقونات حول النص: 1 و 2 يسار، 3 و 4 يمين */
+  .icon1 { left: 22%; right: auto; }
+  .icon2 { left: 19%; right: auto; }
+  .icon3 { right: 22%; left: auto; }
+  .icon4 { right: 20%; left: auto; }
+
+  /* توسيط زر الهيرو أسفل النص */
+  .btn_hero { left: 0; top: 40px; display: block; margin: 0 auto; }
+
+  /* البادجات أسفل الهيرو */
+  .choice { right: 0; justify-content: center; margin-bottom: 40px; }
+  .road { left: 0;}
+
+  /* أقسام لاحقة */
+  .card { margin-left: 0; justify-content: center; gap: 32px; }
+  .Opinions_card { margin-left: 0; justify-content: center; gap: 32px; }
+
+  /* توسيط كارد الدعوة للعمل */
+  .bg { left: 50%; transform: translateX(-50%); margin: 0; }
+  .txt_btn { left: 50%; transform: translateX(-50%); text-align: center; }
+
+  /* توسيط الفوتر */
+  .footer { padding: 60px 24px 40px; }
+  .footer_nav { justify-content: center; align-items: center; gap: 30px; }
+  .logo_footer { position: static; margin: 0 16px; }
+  .line { left: 50%; transform: translateX(-50%); width: 1200px; }
+  .footer_icon { justify-content: center; gap: 30px; width: 100%; }
+  .icon_footer { position: static; }
+  .email { position: static; text-align: center; }
+}
